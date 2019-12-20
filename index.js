@@ -13,9 +13,38 @@ app
   .get(controller.getClients)
   // POST endpoint
   .post(controller.addClient)
+app
+  .route('/autos')
+  // GET endpoint
+  .get(controller.getAutos)
+  // POST endpoint
+  .post(controller.addAuto)
+app
+  .route('/cat_trabajo')
+  // GET endpoint
+  .get(controller.getCat_trabajos)
+  // POST endpoint
+  .post(controller.addCat_trabajo)
+app
+  .route('/trabajo')
+  // GET endpoint
+  .get(controller.getTrabajos)
+  // POST endpoint
+  .post(controller.addTrabajo)
 
+app
+  .route('/cliente/:id')
+  // GET endpoint
+  .get(controller.getClienteById)
+
+app.route('/autoByPlaca/:placa')
+  .get(controller.getAutoByPlaca)
+app.route('/presupuestoByAuto/:id')
+  .get(controller.getPresupuestoByAuto)
+app.route('/orden_trabajoByAuto/:id')
+  .get(controller.getOrdenByAuto)
 // Start server
 const port = process.env.PORT || 3002
 app.listen(port, () => {
-  console.log(`Server listening at `+port)
+  console.log(`Server listening at ` + port)
 })
