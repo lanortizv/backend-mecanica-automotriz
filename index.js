@@ -41,8 +41,11 @@ app.route('/autoByPlaca/:placa')
   .get(controller.getAutoByPlaca)
 app.route('/presupuestoByAuto/:id')
   .get(controller.getPresupuestoByAuto)
-app.route('/orden_trabajoByAuto/:id')
-  .get(controller.getOrdenByAuto)
+app.route('/trabajoByPresu/:id')
+  .get(controller.getTrabajoByPresupuesto)
+app.route('/trabajoByOrden/:id')
+  .get(controller.getTrabajoByOrden)
+
 // Start server
 const port = process.env.PORT || 3002
 app.listen(port, () => {

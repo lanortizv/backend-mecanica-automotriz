@@ -97,7 +97,7 @@ function getPresupuestoByAuto(request, response) {
         response.status(200).json(results.rows)
     })
 }
-function getPresupuestoByAuto(request, response) {
+function getOrdenByAuto(request, response) {
     pool.query('SELECT * FROM schema.orden_trabajo inner join schema.auto_orden_trabajo on schema.orden_trabajo.id=schema.auto_orden_trabajo.orden_trabajo where schema.auto_orden_trabajo.auto=$1', [request.params.id], (error, results) => {
         if (error) {
             throw error
@@ -105,6 +105,24 @@ function getPresupuestoByAuto(request, response) {
         response.status(200).json(results.rows)
     })
 }
+function getTrabajoByPresupuesto(request, response) {
+    /*pool.query('SELECT * FROM schema.orden_trabajo inner join schema.auto_orden_trabajo on schema.orden_trabajo.id=schema.auto_orden_trabajo.orden_trabajo where schema.auto_orden_trabajo.auto=$1', [request.params.id], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })*/
+}
+function getTrabajoByOrden(request, response) {
+    /*pool.query('SELECT * FROM schema.orden_trabajo inner join schema.auto_orden_trabajo on schema.orden_trabajo.id=schema.auto_orden_trabajo.orden_trabajo where schema.auto_orden_trabajo.auto=$1', [request.params.id], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })*/
+}
+//trabajos por presupuesto
+//trabajos por orden de trabajo  
 module.exports = {
     getClients,
     addClient,
@@ -117,5 +135,7 @@ module.exports = {
     getClienteById,
     getAutoByPlaca,
     getPresupuestoByAuto,
-    getOrdenByAuto
+    getOrdenByAuto,
+    getTrabajoByPresupuesto,
+    getTrabajoByOrden
 }
